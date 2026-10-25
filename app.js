@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
+    renderer.domElement.style.touchAction = 'none';
     threeCanvasContainer.innerHTML = '';
     threeCanvasContainer.appendChild(renderer.domElement);
 
@@ -328,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tabContents.forEach(content => content.classList.remove('active'));
 
       button.classList.add('active');
+      button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       const targetContent = document.getElementById(targetId);
       if (targetContent) {
         targetContent.classList.add('active');
